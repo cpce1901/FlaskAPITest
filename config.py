@@ -1,6 +1,5 @@
 from datetime import timedelta
 
-
 class Config(object):
     DEBUG = True
     SECRET_KEY = 'dev'
@@ -9,8 +8,10 @@ class Config(object):
     JWT_REFRESH_TOKEN_EXPIRES = timedelta(hours=12)
     ERROR_INCLUDE_MESSAGE = False
 
+
 class ProdConfig(Config):
     DATABASE_URI = 'mysql://user@localhost/foo'
+
 
 class LocalConfig(Config):
     MYSQL_USER = 'root'
@@ -20,8 +21,8 @@ class LocalConfig(Config):
     MYSQL_DB = 'igledev'
     SQLALCHEMY_DATABASE_URI = f"mysql://{MYSQL_USER}:{MYSQL_PASS}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
     SECRET_KEY = 'This is a SECRET KEY for all PEOPLE #1q2w3e4r5t6y7u8i9o'
+
 
 class TestConfig(Config):
     TESTING = True
